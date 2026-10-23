@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap');
 
-
+/* =====================================================
+   TERMO — estilo
+   Base escura em ardósia, com profundidade suave:
+   brilho no fundo, superfícies com leve gradiente,
+   luz na cor de cada modo e movimento só quando
+   o jogador age (entrar, digitar, revelar, vencer).
+   ===================================================== */
 
 :root {
     --bg: #0c1016;
@@ -130,7 +136,7 @@ header::after {
     font-family: var(--fonte-titulo);
     font-size: 18px;
     font-weight: 800;
-    /* as letras do logo viram ao abrir */
+    /* única animação automática da página: as letras viram ao abrir */
     animation: virar 0.6s var(--suave) both;
 }
 
@@ -203,20 +209,10 @@ header::after {
     max-width: calc(100% - 38px);
 }
 
-/* as letras viram uma a uma e repetem sozinhas a cada 8 segundos */
+/* as letras viram uma a uma quando a página abre */
 .tabuleiro.previa .letra {
-    animation: revelar-loop 8s ease infinite;
+    animation: revelar 0.55s ease both;
     animation-delay: calc(0.5s + var(--i) * 0.11s);
-}
-
-/* o giro dura ~0,55s (7% de 8s); no resto do tempo as letras ficam paradas.
-   para mudar o intervalo, altere o 8s acima e ajuste as porcentagens:
-   giro (0,55 ÷ duração × 100) */
-@keyframes revelar-loop {
-    0%   { transform: rotateX(0); }
-    3.5% { transform: rotateX(90deg); }
-    7%   { transform: rotateX(0); }
-    100% { transform: rotateX(0); }
 }
 
 /* ---------- COMO JOGAR ---------- */
